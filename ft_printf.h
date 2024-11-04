@@ -21,5 +21,6 @@ int ft_print_pointer(void *p, t_objs obj);
 int ft_print_U_number(unsigned long c, t_objs obj);
 
 int ft_strlen(char *str);
+int ft_atoi(char *str);
 
 # endif
