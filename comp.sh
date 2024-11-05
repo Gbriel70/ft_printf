@@ -1,0 +1,1 @@
+cc ft_printf.c  ./utils/ft_printchar.c ./utils/utils.c
