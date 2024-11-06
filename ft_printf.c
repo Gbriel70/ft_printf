@@ -1,61 +1,42 @@
-
 #include "ft_printf.h"
 
-int	ft_printf(const char *, ...);
-int process(const char *str, va_list *params, int *i);
-int normal_process(const char *str, va_list *params, t_objs obj);
-
-int normal_process(const char *str, va_list *params, t_objs obj)
+static int check_value(const char *input, void *arg)
 {
-	int resp;
-
-	resp = 0;
-	if (str[1] == 'c')
-	{
-		resp += ft_printchar(va_arg(*params, int));
-	}
-
-	return (resp);
-}
-
-int process(const char *str, va_list *params, int *i)
-{
-	int resp;
-	t_objs obj;
-	
-	init_objs(obj);
-	resp += normal_process(str + (* i), params, obj);
-	return (resp);
-}
-
-int	ft_printf(const char *str, ...)
-{
-	va_list	params;
-	int		i;
-	int		resp;
+	int	i;
 
 	i = 0;
-	resp = 0;
-	va_start(params, str);
-	while (str[i])
+	if (*input == 'c')
+		i += ft_printchar((int)arg);
+	return i;
+}
+
+int	ft_printf(char *input, ...)
+{
+	va_list args;
+	int i;
+	va_start(args, input);
+	while (*input)
 	{
-		if (str[i] == '%')
+		i = 0;
+		if (*input == '%')
 		{
-			resp += process(str, &params, &i);
-			i++;
+			input++;
+			if (ft_strchr("cspdiuxX", *input))
+				check_value(input, va_arg(args, void *));
+			if (*input == '%')
+				i += ft_printchar('%');
 		}
-		else
-		{
-			resp += ft_printchar(str[i]);
-		}
-		i++;
+		i += ft_printchar(*input);
+		input++;
 	}
-	va_end(params);
-	return resp;
+	va_end(args);
+	return i;
 }
 
 int main()
 {
-	ft_printf("teste: %c", "foi");
+	ft_printf("teste: %c", 'a');
+	printf("\n");
+	printf("teste: %c", 'a');
 	return 0;
 }
