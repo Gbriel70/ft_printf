@@ -17,6 +17,8 @@ static int check_value(char input, va_list args)
 		i += ft_print_number(va_arg(args, unsigned int));
 	else if (input == 'x')
 		i += ft_print_hex(va_arg(args, unsigned int));
+	else if (input == 'X')
+		i += ft_print_UPER_hex(va_arg(args, unsigned int));
 	return i;
 }
 
@@ -46,8 +48,8 @@ int main()
 {
 	int a;
 	char *ptr = (char *)&a;
-	ft_printf("teste: %s ,%c, %p, %d, %i, %u, %x", "teste", 'c', ptr, 42, 22, -1, 1);
+	ft_printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "teste", 'c', ptr, 42, 22, -1, 1, 'a');
 	printf("\n");
-	printf("teste: %s ,%c, %p, %d, %i, %u, %x", "teste", 'c', ptr, 42, 22, -1, 1);
+	printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "teste", 'c', ptr, 42, 22, -1, 1, 'a');
 	return 0;
 }
