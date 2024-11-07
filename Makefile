@@ -1,13 +1,13 @@
-NAME = ft_printf.a
+NAME = libftprintf.a
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 
-SRCS =	ft_printf.c\
-		ft_printchar.c\
-		ft_printstr.c\
-		ft_print_pointer.c\
-		ft_print_number.c\
-		ft_print_hex.c\
+SRCS =    ft_printf.c\
+        ft_printchar.c\
+        ft_printstr.c\
+        ft_print_pointer.c\
+        ft_print_number.c\
+        ft_print_hex.c\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -21,6 +21,6 @@ clean:
 	@rm -rf $(OBJS)
 
 fclean: clean
-	rm -f $(NAME) $(EXEC)
+    rm -f $(NAME)
 
 re: fclean all

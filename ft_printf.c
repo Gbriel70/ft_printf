@@ -44,12 +44,12 @@ int	ft_printf(const char *input, ...)
 	return (print_l);
 }
 
-int main()
-{
-	int a;
-	char *ptr = (char *)&a;
-	ft_printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "teste", 'c', ptr, 42, 22, -1, 1, 'a');
-	printf("\n");
-	printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "teste", 'c', ptr, 42, 22, -1, 1, 'a');
-	return 0;
-}
+// int main()
+// {
+// 	int a;
+// 	char *ptr = (char *)&a;
+// 	ft_printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "teste", 'c', ptr, 42, 22, -1, 1, 'a');
+// 	printf("\n");
+// 	printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "teste", 'c', ptr, 42, 22, -1, 1, 'a');
+// 	return 0;
+// }
