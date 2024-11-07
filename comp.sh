@@ -1,1 +1,1 @@
-cc -Wall -Wextra -Werror ft_printf.c ft_printchar.c ./libft/ft_strchr.c
+cc -Wall -Wextra -Werror ft_printf.c ft_printchar.c ft_printstr.c ft_print_pointer.c ft_print_hex.c ft_print_number.c

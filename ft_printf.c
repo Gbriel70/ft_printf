@@ -1,42 +1,53 @@
 #include "ft_printf.h"
 
-static int check_value(const char *input, void *arg)
+static int check_value(char input, va_list args)
 {
 	int	i;
 
 	i = 0;
-	if (*input == 'c')
-		i += ft_printchar((int)arg);
+	if (input == 'c')
+		i += ft_printchar(va_arg(args, int));
+	else if (input == 's')
+		i += ft_printstr(va_arg(args, char *));
+	else if (input == 'p')
+		i+= ft_print_pointer(va_arg(args, unsigned long long));
+	else if (input == 'd' || input == 'i')
+		i += ft_print_number(va_arg(args, long));
+	else if (input == 'u')
+		i += ft_print_number(va_arg(args, unsigned int));
+	else if (input == 'x')
+		i += ft_print_hex(va_arg(args, unsigned int));
 	return i;
 }
 
-int	ft_printf(char *input, ...)
+int	ft_printf(const char *input, ...)
 {
 	va_list args;
-	int i;
+	int print_l;
+
+	print_l = 0;
 	va_start(args, input);
 	while (*input)
 	{
-		i = 0;
 		if (*input == '%')
 		{
 			input++;
-			if (ft_strchr("cspdiuxX", *input))
-				check_value(input, va_arg(args, void *));
-			if (*input == '%')
-				i += ft_printchar('%');
+			print_l += check_value(*input, args);
+		}else{
+			print_l += ft_printchar(*input);
 		}
-		i += ft_printchar(*input);
 		input++;
 	}
 	va_end(args);
-	return i;
+	return (print_l);
 }
 
 int main()
 {
-	ft_printf("teste: %c", 'a');
+	int a;
+	char *ptr = (char *)&a;
+	ft_printf("teste: %s ,%c, %p, %d, %i, %u, %x", "teste", 'c', ptr, 42, 22, -1, 1);
 	printf("\n");
-	printf("teste: %c", 'a');
+	printf("teste: %s ,%c, %p, %d, %i, %u, %x", "teste", 'c', ptr, 42, 22, -1, 1);
 	return 0;
 }
