@@ -14,13 +14,18 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	@ar -r $(NAME) $(OBJS)
+	@ar -rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
+
+%.o: %.c
+	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY: all,clean,fclean,re
