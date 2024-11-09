@@ -2,7 +2,7 @@ NAME = libftprintf.a
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 
-SRCS =    ft_printf.c\
+SRCS =  ft_printf.c\
         ft_printchar.c\
         ft_printstr.c\
         ft_print_pointer.c\

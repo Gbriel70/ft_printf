@@ -10,15 +10,17 @@ static int check_value(char input, va_list args)
 	else if (input == 's')
 		i += ft_printstr(va_arg(args, char *));
 	else if (input == 'p')
-		i+= ft_print_pointer(va_arg(args, unsigned long long));
+		i+= ft_print_pointer(va_arg(args, unsigned long));
 	else if (input == 'd' || input == 'i')
-		i += ft_print_number(va_arg(args, long));
+		i += ft_putnbr(va_arg(args, long));
 	else if (input == 'u')
 		i += ft_print_number(va_arg(args, unsigned int));
 	else if (input == 'x')
 		i += ft_print_hex(va_arg(args, unsigned int));
 	else if (input == 'X')
 		i += ft_print_UPER_hex(va_arg(args, unsigned int));
+	else if (input == '%')
+		i += ft_printchar('%');
 	return i;
 }
 
@@ -44,12 +46,12 @@ int	ft_printf(const char *input, ...)
 	return (print_l);
 }
 
-// int main()
-// {
-// 	int a;
-// 	char *ptr = (char *)&a;
-// 	ft_printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "teste", 'c', ptr, 42, 22, -1, 1, 'a');
-// 	printf("\n");
-// 	printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "teste", 'c', ptr, 42, 22, -1, 1, 'a');
-// 	return 0;
-// }
+/*int main()
+{
+	int a;
+	char *ptr = (char *)&a;
+	ft_printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "-", 'c', ptr, -42, -22, -1, 1, 'a');
+	printf("\n");
+	printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "-", 'c', ptr, -42, -22, -1, 1, 'a');
+	return 0;
+}*/

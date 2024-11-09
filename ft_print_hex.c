@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int ft_print_hex(unsigned int nbr)
+int ft_print_hex(unsigned long nbr)
 {
 	int	i;
 	char *hex;
@@ -12,6 +12,8 @@ int ft_print_hex(unsigned int nbr)
 	i += write(1, &hex[nbr % 16], 1);
 	return i;
 }
+
+
 int ft_print_UPER_hex(unsigned int nbr)
 {
 	int	i;
@@ -20,7 +22,7 @@ int ft_print_UPER_hex(unsigned int nbr)
 	i = 0;
 	hex = "0123456789ABCDEF";
 	if (nbr >= 16)
-		i += ft_print_hex(nbr / 16);
+		i += ft_print_UPER_hex(nbr / 16);
 	i += write(1, &hex[nbr % 16], 1);
 	return i;
 }
