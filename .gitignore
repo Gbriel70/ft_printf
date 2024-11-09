@@ -1,0 +1,6 @@
+a.out
+*.out
+*.swp
+*.vscode
+*.o
+a.out*
