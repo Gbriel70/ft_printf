@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gcosta-m <gcosta-m@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/11 10:50:32 by gcosta-m          #+#    #+#             */
+/*   Updated: 2024/11/11 10:53:42 by gcosta-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-static int check_value(char input, va_list args)
+static int	check_value(char input, va_list args)
 {
 	int	i;
 
@@ -10,7 +22,7 @@ static int check_value(char input, va_list args)
 	else if (input == 's')
 		i += ft_printstr(va_arg(args, char *));
 	else if (input == 'p')
-		i+= ft_print_pointer(va_arg(args, unsigned long));
+		i += ft_print_pointer(va_arg(args, unsigned long));
 	else if (input == 'd' || input == 'i')
 		i += ft_putnbr(va_arg(args, long));
 	else if (input == 'u')
@@ -18,16 +30,16 @@ static int check_value(char input, va_list args)
 	else if (input == 'x')
 		i += ft_print_hex(va_arg(args, unsigned int));
 	else if (input == 'X')
-		i += ft_print_UPER_hex(va_arg(args, unsigned int));
+		i += ft_print_uper_hex(va_arg(args, unsigned int));
 	else if (input == '%')
 		i += ft_printchar('%');
-	return i;
+	return (i);
 }
 
 int	ft_printf(const char *input, ...)
 {
-	va_list args;
-	int print_l;
+	va_list	args;
+	int		print_l;
 
 	print_l = 0;
 	va_start(args, input);
@@ -37,7 +49,9 @@ int	ft_printf(const char *input, ...)
 		{
 			input++;
 			print_l += check_value(*input, args);
-		}else{
+		}
+		else
+		{
 			print_l += ft_printchar(*input);
 		}
 		input++;
@@ -50,8 +64,10 @@ int	ft_printf(const char *input, ...)
 {
 	int a;
 	char *ptr = (char *)&a;
-	ft_printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "-", 'c', ptr, -42, -22, -1, 1, 'a');
+	ft_printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "-", 'c', ptr, -42, -22,
+		-1, 1, 'a');
 	printf("\n");
-	printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "-", 'c', ptr, -42, -22, -1, 1, 'a');
-	return 0;
+	printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "-", 'c', ptr, -42, -22, -1,
+		1, 'a');
+	return (0);
 }*/
