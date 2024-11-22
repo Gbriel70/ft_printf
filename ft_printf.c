@@ -6,7 +6,7 @@
 /*   By: gcosta-m <gcosta-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:50:32 by gcosta-m          #+#    #+#             */
-/*   Updated: 2024/11/11 10:53:42 by gcosta-m         ###   ########.fr       */
+/*   Updated: 2024/11/22 10:14:29 by gcosta-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ static int	check_value(char input, va_list args)
 	else if (input == 'p')
 		i += ft_print_pointer(va_arg(args, unsigned long));
 	else if (input == 'd' || input == 'i')
-		i += ft_putnbr(va_arg(args, long));
+		i += ft_putnbr(va_arg(args, long), DECIMAL_BASE);
 	else if (input == 'u')
 		i += ft_print_number(va_arg(args, unsigned int));
 	else if (input == 'x')
-		i += ft_print_hex(va_arg(args, unsigned int));
+		i += ft_putnbr(va_arg(args, unsigned int), HEXADECIMAL_BASE);
 	else if (input == 'X')
 		i += ft_print_uper_hex(va_arg(args, unsigned int));
 	else if (input == '%')
@@ -60,14 +60,12 @@ int	ft_printf(const char *input, ...)
 	return (print_l);
 }
 
-/*int main()
+int main()
 {
-	int a;
-	char *ptr = (char *)&a;
-	ft_printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "-", 'c', ptr, -42, -22,
-		-1, 1, 'a');
+	//int a;
+	//char *ptr = (char *)&a;
+	ft_printf("teste: %d, %i, %x", -42, -22, 10);
 	printf("\n");
-	printf("teste: %s ,%c, %p, %d, %i, %u, %x, %x", "-", 'c', ptr, -42, -22, -1,
-		1, 'a');
-	return (0);
-}*/
+	printf("teste: %d, %i, %x", -42, -22, 10);
+	return 0;
+}
