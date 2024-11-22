@@ -6,7 +6,7 @@
 /*   By: gcosta-m <gcosta-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:51:00 by gcosta-m          #+#    #+#             */
-/*   Updated: 2024/11/22 13:42:29 by gcosta-m         ###   ########.fr       */
+/*   Updated: 2024/11/22 14:40:21 by gcosta-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int	ft_printstr(const char *str);
 int	ft_print_pointer(unsigned long ptr, char *base);
 int	ft_print_number(unsigned int nbr);
 int	ft_putnbr_base(long int nbr, char *base);
+int ft_putplus_and_space(long int nbr, char *base, char flag);
 
 #endif
