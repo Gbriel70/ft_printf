@@ -1,0 +1,1 @@
+cc -Wall -Wextra -Werror ft_printf_bonus.c ft_print_number_ptr_bonus.c ft_printchar_and_str_bonus.c ft_putplus_space_and_sharp_bonus.c
