@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_number.c                                  :+:      :+:    :+:   */
+/*   ft_print_number_ptr.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcosta-m <gcosta-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:51:52 by gcosta-m          #+#    #+#             */
-/*   Updated: 2024/11/22 10:20:10 by gcosta-m         ###   ########.fr       */
+/*   Updated: 2024/11/22 13:40:44 by gcosta-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,21 @@ int	ft_print_number(unsigned int nbr)
 	return (count);
 }
 
-int	ft_putnbr(int n, char *base)
+int	ft_putnbr_base(long int  nbr, char *base)
 {
 	int		c;
-	long	nbr;
 	int		len_base;
 
 	c = 0;
-	nbr = n;
 	len_base = len_str(base);
 	if (nbr < 0)
 	{
-		c += write(1, "-", 1);
-		nbr = -nbr;
+		c += ft_printchar('-');
+		nbr *= -1;
 	}
-	if (nbr >= 10)
-	{
-		//if (len_base == 16)
-		//{
-		c += ft_putnbr((nbr / len_base), base);
-		//	c += write(1, &HEXADECIMAL_BASE[nbr % 16], 1);
-		//}
-		c += ft_putnbr((nbr / len_base), base);
-	}
-	c += ft_printchar((nbr % len_base) + '0');
+	if (nbr >= len_base)
+		c += ft_putnbr_base(nbr / len_base, base);
+	c += ft_printchar(base[nbr % len_base]);
 	return (c);
 }
 
@@ -60,4 +51,21 @@ static int len_str(char *str)
 	while (*len)
 		len++;
 	return (len - str);
+}
+
+int	ft_print_pointer(unsigned long ptr, char *base)
+{
+	int	i;
+	int len_base;
+
+	i = 0;
+	len_base = len_str(base);
+	if (ptr == 0)
+		return (ft_printstr("(nil)"));
+	if (ptr >= (unsigned long)len_base)
+		i += ft_print_pointer(ptr / len_base, base);
+	else 
+		i += ft_printstr("0x");
+	i += ft_printchar(base[ptr % len_base]);
+	return (i);
 }
