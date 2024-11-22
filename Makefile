@@ -4,15 +4,14 @@ FLAGS = -Wall -Wextra -Werror
 
 SRCS =  ft_printf.c\
         ft_printchar_and_str.c\
-        ft_print_number_ptr.c\
+        ft_print_number_ptr.c
 
-BONUS_SRC = .bonus/ft_printf_bonus.c\
-			.bonus/ft_printchar_and_str_bonus.c\
-			.bonus/ft_print_number_ptr_bonus.c\
-			.bonus/ft_putplus_space_and_shap_bonus.c\
+BONUS_SRC = ft_printf_bonus.c\
+			ft_printchar_and_str_bonus.c\
+			ft_print_number_ptr_bonus.c\
+			ft_putplus_space_and_shap_bonus.c
 
 OBJS = $(SRCS:.c=.o)
-
 BONUS_OBJS = $(BONUS_SRC:.c=.o)
 
 ifdef WITH_BONUS
@@ -24,7 +23,7 @@ endif
 $(NAME): $(OBJ_SWITCH)
 	ar rcs $@ $^
 
-all : bonus $(NAME)
+all : $(NAME)
 
 clean:
 	@rm -rf $(OBJS) $(BONUS_OBJS)
