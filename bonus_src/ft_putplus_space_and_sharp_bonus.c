@@ -20,9 +20,9 @@ int ft_putplus_and_space(long int nbr, char *base, char flag)
 
 	total = 0;
 
-	if ((flag == '+') && (nbr > 0))
+	if ((flag == '+') && (nbr >= 0))
 		total += ft_printchar('+');
-	if ((flag == ' ') && (nbr > 0))
+	if ((flag == ' ') && (nbr >= 0))
 		total += ft_printchar(' ');
 	total += ft_putnbr_base(nbr, base);
 	return (total);

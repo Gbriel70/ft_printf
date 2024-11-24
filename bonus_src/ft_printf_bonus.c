@@ -64,11 +64,11 @@ int	ft_printf(const char *input, ...)
 	return (print_l);
 }
 
-// #include <stdio.h>
-// int main()
-// {
-// 	ft_printf("meu teste: %#X", 255);
-// 	printf("\n");
-// 	printf("printf ori: %#X", 255);
-// 	return 0;
-// }
+/*#include <stdio.h>
+int main()
+{
+ 	ft_printf("meu teste: % 1s", "");
+ 	printf("\n");
+ 	printf("printf ori: % 1s", "");
+	return 0;
+}*/

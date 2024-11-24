@@ -14,7 +14,7 @@ BONUS_SRCS = ft_printf_bonus.c\
 			 ft_print_number_ptr_bonus.c\
 			 ft_putplus_space_and_sharp_bonus.c
 
-BONUS_HEADER = $(BONUS_DIR)ft_printf_bonus.h\
+BONUS_HEADER = $(BONUS_DIR)ft_printf_bonus.h
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(addprefix $(BONUS_DIR), $(BONUS_SRCS:.c=.o))
@@ -26,8 +26,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus: $(BONUS_OBJS)
+	ar rcs $(NAME) $(BONUS_OBJS)
 
 # Regras de dependências
 $(OBJS): $(SRC_HEADER)
