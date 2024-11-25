@@ -6,7 +6,7 @@
 /*   By: gcosta-m <gcosta-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 14:25:09 by gcosta-m          #+#    #+#             */
-/*   Updated: 2024/11/22 16:18:43 by gcosta-m         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:28:56 by gcosta-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,17 @@ static int	check_value(char input, va_list args, char flag)
 	else if (input == 's')
 		total += ft_printstr(va_arg(args, char *));
 	else if (input == 'p')
-		total += ft_print_pointer(va_arg(args, unsigned long), HEXADECIMAL_BASE);
+		total += ft_print_pointer(va_arg(args, unsigned long),
+				HEXADECIMAL_BASE);
 	else if (input == 'd' || input == 'i')
 		total += ft_putplus_and_space(va_arg(args, int), DECIMAL_BASE, flag);
 	else if (input == 'u')
-		total += ft_putnbr_base(va_arg(args, unsigned int),DECIMAL_BASE);
+		total += ft_putnbr_base(va_arg(args, unsigned int), DECIMAL_BASE);
 	else if (input == 'x')
 		total += put_hexa(va_arg(args, unsigned int), HEXADECIMAL_BASE, flag);
 	else if (input == 'X')
-		total+= put_hexa(va_arg(args, unsigned int), UPER_HEXADECIMAL_BASE, flag);
+		total += put_hexa(va_arg(args, unsigned int), UPER_HEXADECIMAL_BASE,
+				flag);
 	else if (input == '%')
 		total += ft_printchar('%');
 	return (total);
@@ -64,11 +66,11 @@ int	ft_printf(const char *input, ...)
 	return (print_l);
 }
 
-/*#include <stdio.h>
-int main()
-{
- 	ft_printf("meu teste: % 1s", "");
- 	printf("\n");
- 	printf("printf ori: % 1s", "");
-	return 0;
-}*/
+// #include <stdio.h>
+// int main()
+// {
+//  	ft_printf("meu teste: % 1s .", "");
+//  	printf("\n");
+//  	printf("teste % 1s .", "");
+// 	return (0);
+// }

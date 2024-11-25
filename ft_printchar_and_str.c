@@ -6,7 +6,7 @@
 /*   By: gcosta-m <gcosta-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:51:27 by gcosta-m          #+#    #+#             */
-/*   Updated: 2024/11/22 09:41:21 by gcosta-m         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:27:26 by gcosta-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	ft_printchar(char c)
 
 int	ft_printstr(const char *str)
 {
-	const char	*s;
 	int			i;
 	int			len;
+	const char	*s;
 
 	if (!str)
 		return (ft_printstr("(null)"));

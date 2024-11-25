@@ -6,13 +6,13 @@
 /*   By: gcosta-m <gcosta-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:51:52 by gcosta-m          #+#    #+#             */
-/*   Updated: 2024/11/22 13:40:44 by gcosta-m         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:28:02 by gcosta-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int len_str(char *str);
+static int	len_str(char *str);
 
 int	ft_print_number(unsigned int nbr)
 {
@@ -25,10 +25,10 @@ int	ft_print_number(unsigned int nbr)
 	return (count);
 }
 
-int	ft_putnbr_base(long int  nbr, char *base)
+int	ft_putnbr_base(long int nbr, char *base)
 {
-	int		c;
-	int		len_base;
+	int	c;
+	int	len_base;
 
 	c = 0;
 	len_base = len_str(base);
@@ -43,10 +43,10 @@ int	ft_putnbr_base(long int  nbr, char *base)
 	return (c);
 }
 
-static int len_str(char *str)
+static int	len_str(char *str)
 {
-	char *len;
-	
+	char	*len;
+
 	len = str;
 	while (*len)
 		len++;
@@ -56,7 +56,7 @@ static int len_str(char *str)
 int	ft_print_pointer(unsigned long ptr, char *base)
 {
 	int	i;
-	int len_base;
+	int	len_base;
 
 	i = 0;
 	len_base = len_str(base);
@@ -64,7 +64,7 @@ int	ft_print_pointer(unsigned long ptr, char *base)
 		return (ft_printstr("(nil)"));
 	if (ptr >= (unsigned long)len_base)
 		i += ft_print_pointer(ptr / len_base, base);
-	else 
+	else
 		i += ft_printstr("0x");
 	i += ft_printchar(base[ptr % len_base]);
 	return (i);

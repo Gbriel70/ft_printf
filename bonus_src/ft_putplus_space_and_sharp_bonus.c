@@ -6,20 +6,19 @@
 /*   By: gcosta-m <gcosta-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 14:35:22 by gcosta-m          #+#    #+#             */
-/*   Updated: 2024/11/22 15:51:14 by gcosta-m         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:29:47 by gcosta-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-static int ft_strcmp(char *str1, char *str2);
+static int	ft_strcmp(char *str1, char *str2);
 
-int ft_putplus_and_space(long int nbr, char *base, char flag)
+int	ft_putplus_and_space(long int nbr, char *base, char flag)
 {
-	int total;
+	int	total;
 
 	total = 0;
-
 	if ((flag == '+') && (nbr >= 0))
 		total += ft_printchar('+');
 	if ((flag == ' ') && (nbr >= 0))
@@ -28,9 +27,9 @@ int ft_putplus_and_space(long int nbr, char *base, char flag)
 	return (total);
 }
 
-int put_hexa(long int nbr, char *base, char flag)
+int	put_hexa(long int nbr, char *base, char flag)
 {
-	int total;
+	int	total;
 
 	total = 0;
 	if ((flag == '#') && (nbr > 0))
@@ -41,10 +40,10 @@ int put_hexa(long int nbr, char *base, char flag)
 			total += ft_printstr("0x");
 	}
 	total += ft_putnbr_base(nbr, base);
-	return total;
+	return (total);
 }
 
-static int ft_strcmp(char *str1, char *str2)
+static int	ft_strcmp(char *str1, char *str2)
 {
 	while (*str1 && *str2)
 	{

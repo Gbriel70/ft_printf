@@ -6,7 +6,7 @@
 /*   By: gcosta-m <gcosta-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:50:32 by gcosta-m          #+#    #+#             */
-/*   Updated: 2024/11/22 14:23:31 by gcosta-m         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:25:06 by gcosta-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	check_value(char input, va_list args)
 	else if (input == 'd' || input == 'i')
 		i += ft_putnbr_base(va_arg(args, int), DECIMAL_BASE);
 	else if (input == 'u')
-		i += ft_putnbr_base(va_arg(args, unsigned int),DECIMAL_BASE);
+		i += ft_putnbr_base(va_arg(args, unsigned int), DECIMAL_BASE);
 	else if (input == 'x')
 		i += ft_putnbr_base(va_arg(args, unsigned int), HEXADECIMAL_BASE);
 	else if (input == 'X')
